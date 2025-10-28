@@ -1,0 +1,9 @@
+<button id="btn">Load</button><pre id="out"></pre>
+<script type="module">
+import {getJSON} from './fetchy.js';
+document.getElementById('btn').onclick=async()=>{
+  try{const d=await getJSON('https://api.github.com/repos/octocat/hello-world');
+      out.textContent=JSON.stringify({full_name:d.full_name,stars:d.stargazers_count},null,2)}
+  catch(e){out.textContent='Hata: '+e.message}
+};
+</script>
